@@ -11,6 +11,7 @@
 
 import os
 from flask import Flask, render_template, request, Response, Request, redirect
+from werkzeug.utils import secure_filename
 
 import test
 import reKogtest as rK
@@ -46,7 +47,9 @@ def upload_file():
         # # string = test.test()
 
         image = request.files['image']
-        image.save(os.path.join(app.config['UPLOAD_FOLDER'], "img_file"))
+        image = secure_filename(image)
+        # image.save(secure_filename(image.filename))
+        # image.save(os.path.join(app.config['UPLOAD_FOLDER'], "img_file"))
         # image = str(image)
         string = rK.main(image)
 

@@ -1,0 +1,80 @@
+
+#formdiv #inputform {
+     color:#5a84cc;
+     font-family:Verdana, Arial, sans-serif;
+     font-size:16px;
+     display: inline;
+ }
+
+#formdiv #inputform input, textarea {
+    -webkit-appearance: textarea;
+    -webkit-box-shadow: 0 0 0 1000px white inset !important;
+    -webkit-text-fill-color:#85e0ff;
+    color: #85e0ff;
+    font-family:Verdana,Arial, sans-serif;
+    font-size:16px;
+    background-color: white;
+}
+
+
+#formdiv #inputform textarea:focus input:focus {
+    -webkit-appearance: textarea;
+    color:#85e0ff;
+    font-family:Verdana,Arial, sans-serif;
+    font-size:16px;
+    background-color: white;
+}
+
+#formdiv #inputform input[type=submit]{
+    background-color: #5a84cc;
+}
+
+#formdiv #inputform #submit {
+
+    background-color: #5a84cc;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius:3px;
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+
+}
+
+
+#formdiv #inputform #submit:hover {
+    border: none;
+    font-family: 'Oswald',sans-serif;
+    background:lightblue;
+    box-shadow: 0px 0px 1px #777;
+}
+
+
+button {
+    background-color: #5a84cc;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    color: #fff;
+    font-family: 'Oswald';
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+}
+
+button:hover {
+    border: none;
+    background:lightblue;
+    box-shadow: 0px 0px 1px #777;
+}
+
+#json_results {
+    color:#5a84cc;
+    font-family: Verdana, Arial, sans-serif;
+    font-size:25px;
+    display: inline
+}

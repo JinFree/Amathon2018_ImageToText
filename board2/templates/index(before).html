@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../static/jquery-2.1.4.js" ></script>
+    <title> JSON From Form </title>
+    <link rel="stylesheet" href="../static/json.css">
+
+
+</head>
+<body>
+
+<div id="formdiv">
+    <form id='inputform' action="#" method="post">
+        <p>
+            <label for="name">Name: <br></label>
+            <input type="text" name="name" id="name" />
+        </p>
+            <label for="email">Email: <br></label>
+            <input type="text" name="email" id="email"/>
+        <p>
+            <label for="password">Password: <br></label>
+            <input type="password" name="password" id="password"/>
+        </p>
+        <p>
+            <label for="username">Username: <br></label>
+            <input type="text" name="username" id="username"/>
+        </p>
+            <input type="submit" value="Send" id="submit" />
+    </form>
+    <!--Clear Output from json_results div-->
+    <button id="clearbutton" type="submit">Clear Output</button>
+</div>
+
+<!-- Div to store results of JSON REST Call -->
+<div id="json_results"> </div>
+
+
+    <script type="text/javascript">
+
+        (function ($) {
+        $.fn.serializeFormJSON = function () {
+
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function () {
+            if (o[this.name]) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+        return o;
+            };
+    })(jQuery);
+
+    $("form").submit(function (e) {
+        e.preventDefault();
+        var data = $(this).serializeFormJSON();
+        //console.log(data);
+        //$('#json_results').append('<p>' + data.name + '</p>' + '<p>' + data.email + '</p>' + data.password + '</p>');
+
+
+        // Send serialized json data to server at url
+        var url = 'http://10.55.16.10:8082/form';
+
+        $.ajax({url: url,
+            type: 'post',
+            dataType: 'json',
+            data: data,
+            success: function(results){
+            // Flask server return arbitrary json formatted response, printed below
+                $('#json_results').append('<p>' + 'The following was received from ' + url + ' : ' + results.val3 +'</p>') }
+
+        });
+    /* Object
+    email: "value"
+    name: "value"
+    password: "value"
+    */
+    });
+
+        $(document).ready(function() {
+            $("#clearbutton").click(function(){
+                $('#json_results').empty()
+            });
+        });
+
+    </script>
+
+</body>
+</html>

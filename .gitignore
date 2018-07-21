@@ -1,0 +1,8 @@
+.viminfo
+__pycache__
+.ssh
+.aws
+.bash*
+.cache
+*.pyc
+

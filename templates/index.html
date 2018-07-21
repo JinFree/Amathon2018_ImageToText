@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+
+<body>
+    <form action="/" method="post" enctype="multipart/form-data">
+        이미지 : <input type="file" name="image"/>
+
+        <button type="submit">반환</button>
+    </form>
+
+    {% if results %}
+        <p>번역 결과: </p>
+        <p>{{ results["text"] }}</p>
+    {% endif %}
+
+</body>
+</html>
